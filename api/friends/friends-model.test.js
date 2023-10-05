@@ -15,7 +15,7 @@ test("environment is testing", () => {
 });
 
 describe("getAll", () => {
-  test("resolve all the hobbits in the table", async () => {
+  test("resolve all the friends in the table", async () => {
     const result = await Friends.getAll();
     expect(result).toHaveLength(4);
     expect(result[0]).toMatchObject({ name: "mark" });
@@ -26,7 +26,7 @@ describe("getAll", () => {
 });
 
 describe("getById", () => {
-  test("resolve the hobbit by the given id", async () => {
+  test("resolve the friends by the given id", async () => {
     let result = await Friends.getById(1);
     expect(result).toMatchObject({ name: "mark" });
     result = await Friends.getById(2);
@@ -40,11 +40,11 @@ describe("getById", () => {
 
 describe("insert", () => {
   const john = { name: "john" };
-  test("resolves the newly created hobbit", async () => {
+  test("resolves the newly created friends", async () => {
     const result = await Friends.insert(john);
     expect(result).toMatchObject(john);
   });
-  test("add the hobbit to the hobbits table", async () => {
+  test("add the friend to the friends table", async () => {
     await Friends.insert(john);
     const records = await db("friends");
     expect(records).toHaveLength(5);

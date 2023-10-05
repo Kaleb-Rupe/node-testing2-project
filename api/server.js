@@ -10,29 +10,29 @@ server.get("/", (req, res) => {
   res.status(200).json({ api: "up" });
 });
 
-server.get("/hobbits", (req, res) => {
+server.get("/friends", (req, res) => {
   Friends.getAll()
-    .then((hobbits) => {
-      res.status(200).json(hobbits);
+    .then((friends) => {
+      res.status(200).json(friends);
     })
     .catch((error) => {
       res.status(500).json(error);
     });
 });
 
-server.get("/hobbits/id", (req, res) => {
+server.get("/friends/id", (req, res) => {
   res.end();
 });
 
-server.post("/hobbits", async (req, res) => {
+server.post("/friends", async (req, res) => {
   res.status(201).json(await Friends.insert(req.body));
 });
 
-server.delete("/hobbits/:id", (req, res) => {
+server.delete("/friends/:id", (req, res) => {
   res.end();
 });
 
-server.put("/hobbits/:id", (req, res) => {
+server.put("/friends/:id", (req, res) => {
   res.end();
 });
 

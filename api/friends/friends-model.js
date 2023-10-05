@@ -1,4 +1,4 @@
-const db = require("../../data/dbConfigs");
+const db = require("../../data/dbConfig");
 
 module.exports = {
   insert,
@@ -16,9 +16,9 @@ function getById(id) {
   return db("friends").where("id", id).first();
 }
 
-async function insert(hobbit) {
-  return await db("freinds")
-    .insert(hobbit)
+async function insert(freind) {
+  return await db("friends")
+    .insert(freind)
     .then(([id]) => {
       return db("friends").where("id", id).first();
     });

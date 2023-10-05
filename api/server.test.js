@@ -24,11 +24,11 @@ describe("[GET] /friends", () => {
 
 describe("[POST] /friends", () => {
   const john = { name: "john" };
-  test("adds a hobbit to the database", async () => {
+  test("adds a friend to the database", async () => {
     await request(server).post("/friends").send(john);
-    expect(await db("freinds")).toHaveLength(5);
+    expect(await db("friends")).toHaveLength(5);
   });
-  test("responds with the new hobbit", async () => {
+  test("responds with the new friend", async () => {
     const res = await request(server).post("/friends").send(john);
     expect(res.body).toMatchObject(john);
   });
